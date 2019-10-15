@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import {axiosWithAuth} from "../utils/axiosWithAuth";
 
 export const UserForm = (props) => {
   
@@ -11,10 +11,10 @@ export const UserForm = (props) => {
     const login = (e) => {
         e.preventDefault();
          axiosWithAuth()
-            .post('http://localhost:5000/api/login', creds)
+            .post('/api/login', creds)
             .then( res => {
                 localStorage.setItem('token', res.data.payload)
-                props.history.push('')
+                props.history.push('/myfriends')
             })
         }
     
@@ -31,7 +31,7 @@ return (
     <>
     <div>
     <h1>log in</h1>
-      <form onSubmit={register}>
+      <form login={login}>
         <input
         type="text"
         name="username"
