@@ -13,9 +13,6 @@ function App() {
         <div>
           <Link to="/login">Login</Link>
         </div>
-        <div>
-          <Link to="/FriendList">Friends</Link>
-        </div>
         <Switch>
           <PrivateRoute exact path="/FriendList" component={FriendList} />
           <Route path="/login" component={UserForm} />
